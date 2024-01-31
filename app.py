@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 # from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__, template_folder='templates', static_folder='static')
+app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 # db = SQLAlchemy(app)
 
@@ -21,4 +21,4 @@ def register(name=None):
 
 @app.route('/login')
 def login(name=None):
-	return render_template('login.html', name=name)
+	return render_template('./login.html', name=name)
