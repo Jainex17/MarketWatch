@@ -1,13 +1,69 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>StockMarket - Title</title>
+    <title>StockMarket - Register</title>
 {% endblock %}
 
 
 {% block body %}
-    <h1>Register</h1>
+    <h1 class="text-center py-5">Register</h1>
 
-    <a href="{{ url_for('login') }}">Login</a>
+    <div class="container">
+        <div class="row mx-0 justify-content-center">
+          <div class="col-md-7 col-lg-5 px-lg-2 col-xl-4 px-xl-0 px-xxl-3">
+            <form
+              method="POST"
+              class="w-100 rounded-1 p-4 border bg-white"
+            >
+              <label class="d-block mb-4">
+                <span class="form-label d-block">Email address</span>
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter Email Address"
+                  required
+                />
+              </label>
+
+              <label class="d-block mb-4">
+                <span class="form-label d-block">Username</span>
+                <input
+                  name="username"
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Username"
+                  required
+                />
+              </label>
+      
+              <label class="d-block mb-4">
+                <span class="form-label d-block">Password</span>
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  minlength="6"
+                  placeholder="Enter Password"
+                  required
+                />
+              </label>
+      
+              <div class="mb-3">
+                <button type="submit" class="btn btn-primary px-3 rounded-3">
+                  Sign Up
+                </button>
+              </div>
+            
+                <div class="text-center">
+                    <span class="d-block">Already have an account?</span>
+                    <a href="{{ url_for('login') }}" class="text-decoration-none">Login</a>
+                </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      
     
 {% endblock %}
