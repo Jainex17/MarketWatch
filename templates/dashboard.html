@@ -9,12 +9,18 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <nav class="navbar navbar-light bg-light">
                     <a class="navbar-brand" href="#">MarketWatch</a>
-
-                    <h4 class="flex-grow-1 text-center">Welcome, {{ session['username'] }}</h4>
-                 
-                    <a href="{{ url_for('logout') }}" class="btn btn-danger right">Logout</a>
+                    
+                    <div class="btn-group dropstart" style="margin-right: 20px;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a href="{{ url_for('user_watchlist') }}" class="dropdown-item" type="button">Watchlist</a></li>
+                          <li><a href="{{ url_for('logout') }}" class="dropdown-item" type="button">Logout</a></li>
+                        </ul>
+                    </div>
                 </nav>
                 
             </div>
@@ -39,7 +45,7 @@
 
     <div class="d-flex flex-column align-items-center">
         <h5 class="text-center">Stock: {{ stock_symbol }}</h5>
-        <form action="{{ url_for('dashboard_subscribe') }}">
+        <form action="{{ url_for('dashboard_subscribe') }}" method="POST">
             <input type="hidden" name="stock" value="{{ stock_symbol }}">
             <button class="btn btn-warning" type="submit">Subscribe</button>
         </form>

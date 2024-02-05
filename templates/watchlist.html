@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>StockMarket - WatchList</title>
+{% endblock %}
+
+
+{% block body %}
+    <h1 class="text-center py-5">Your WatchList</h1>
+
+    <div class="container">
+        <div class="row mx-0 justify-content-center">
+          <div class="col-md-7 col-lg-5 px-lg-2 col-xl-4 px-xl-0 px-xxl-3">
+            <div class="w-100 rounded-1 p-4 border bg-white">
+                <ul class="list-group">
+                    {% for stock in stock_list %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ stock.stock_symbol }}
+                            <a href="{{ url_for('dashboard_unsubscribe', stock_symbol=stock.stock_symbol) }}" class="btn btn-danger btn-sm">Remove</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
